@@ -16,4 +16,14 @@ add_executable(OS
         IHW1/9/sender.c
         IHW1/10/sender.c
         IHW1/10/receiver.c
-        IHW1/converter.h)
+        IHW1/converter.h
+        IHW2/4-5/unnamed.c
+        IHW2/hive.c
+        IHW2/hive.h
+        IHW2/hive.h
+        IHW2/hive.h
+        IHW2/hive.c
+        IHW2/hive.c
+        IHW2/hive.h
+        IHW2/6-7/named.c
+)
