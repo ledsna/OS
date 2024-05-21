@@ -1,0 +1,4 @@
+./server 1 15
+./monitor_client 127.0.0.1 1 1
+./bee_client 127.0.0.1 1 1
+./winnie_pooh_client 127.0.0.1 1 10

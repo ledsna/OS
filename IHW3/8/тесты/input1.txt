@@ -1,0 +1,7 @@
+./server 1 20
+./bee_client 127.0.0.1 1 1
+./winnie_pooh_client 127.0.0.1 1 1
+./monitor_client 127.0.0.1 1 1
+./monitor_client 127.0.0.1 1 1
+
+Здесь будем подключать и отключать мониторы!
