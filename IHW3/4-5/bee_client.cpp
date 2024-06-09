@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (interval <= 0) {
+    if (interval < 0) {
         std::cerr << "Ошибка: Интервал должен быть положительным числом." << std::endl;
         return 1;
     }

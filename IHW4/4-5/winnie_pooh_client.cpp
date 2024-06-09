@@ -31,13 +31,13 @@ int main(int argc, char *argv[]) {
     int sockfd;
     struct sockaddr_in serv_addr;
 
-    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     if (sockfd < 0) {
         perror("Ошибка при открытии сокета");
         return 1;
     }
 
-    bzero((char *) &serv_addr, sizeof(serv_addr));
+    bzero((char *)&serv_addr, sizeof(serv_addr));
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(port);
     if (inet_pton(AF_INET, server_ip.c_str(), &serv_addr.sin_addr) <= 0) {
@@ -45,25 +45,12 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (connect(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
-        perror("Ошибка при подключении");
-        return 1;
-    }
-
     while (true) {
-        std::string message;
-
-        // Определение действия с учетом вероятности
-        int random_value = std::rand() % 100;
-        if (random_value < 50) {
-            message = "collect_honey";
-        } else {
-            message = "guard_hive";
-        }
-
-        write(sockfd, message.c_str(), message.length());
+        std::string message = "winnie_pooh";
+        sendto(sockfd, message.c_str(), message.length(), 0, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
         char buffer[256];
-        int n = read(sockfd, buffer, 255);
+        socklen_t len = sizeof(serv_addr);
+        int n = recvfrom(sockfd, buffer, 255, 0, (struct sockaddr *)&serv_addr, &len);
         if (n > 0) {
             buffer[n] = '\0';
             std::string response(buffer);

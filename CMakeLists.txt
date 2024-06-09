@@ -14,4 +14,7 @@ add_executable(OS
         IHW3/6-7/winnie_pooh_client.cpp
         IHW3/8/server.cpp
         IHW3/10/server.cpp
+        IHW4/4-5/bee_client.cpp
+        IHW4/4-5/server.cpp
+        IHW4/4-5/winnie_pooh_client.cpp
 )
